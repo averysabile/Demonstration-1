@@ -1,0 +1,89 @@
+
+<!-- This is the HTML document structure that is being declared -->
+<!DOCTYPE html>
+<!-- This sets the HTML document to english -->
+<html lang="en">
+<head>
+<!-- Defines universal chaarcter set for the document -->
+<meta charset="UTF-8">
+<!-- This makes sure hat the documet responds to different screen sizes -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- This sets the title page on the browser tab -->
+<title>UX Persona - Aaron</title>
+<style>
+/* Sets font family to serif and centers the content vertically and horizontally */
+body {
+font-family: serif, sans-serif;
+display: flex;
+justify-content: Center;
+align-items: Center;
+height: 50vh;
+background-color: #f9feff;
+}
+/* This styles the person card with padding, rounded corners, and a shadow effect on the page */
+.persona-card {
+background: rgb(137, 199, 249);
+padding: 20px;
+border-radius: 20px;
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+text-align: left;
+width: 800px;
+}
+/* This list has their bullet points removed */
+ul {
+list-style-type: none;
+padding: 2;
+}
+</style>
+</head>
+<body>
+<!-- This div divides the content with the user persona "Aaron and their information -->
+<div class="persona-card">
+<!-- This displays the persona name with javascript  -->
+<h2 id="persona-name"> hi </h2>
+<!-- This displays the age of the user persona "Aaron" -->
+<p><strong>Age:</strong> <span id="persona-age">[Age]</span></p>
+<!-- This displays Aaron's skills -->
+<p><strong>Skills:</strong></p>
+<ul id="persona-skills">
+<!-- JavaScript inserts the skills here -->
+</ul>
+</div>
+<script>
+// This creates an object (Square) that shows Aaron our user persona
+let userPersona = {
+name: "Aaron, the high school student",
+age: 17,
+skills: ["Rowing", "Fishing", "Track and Field, Driving boats"],
+// This function is used to introduce Aaron and his skills
+introduce: function() {
+return `I'm ${this.name} and I specialize in ${this.skills.join(", ")}.`;
+}
+};
+// This creates another persona object to compare Aaron
+let userPersona2 = {
+name: "Tammy, the wife of a fisher",
+age: 36,
+skills: ["making fish tacos", "baking", "watching my husband fish"],
+// This function introduces the second persona Tammy
+introduce: function() {
+return `I'm ${this.name} and I specialize in ${this.skills.join(", ")}.`;
+}
+};
+// This updates the HTML content to show Aaron's information
+document.getElementById("persona-name").innerText = userPersona.name;
+document.getElementById("persona-age").innerText = userPersona.age;
+// This selects the unorder list <ul> for Aaron's skills
+let skillList = document.getElementById("persona-skills");
+// This loops through Aaron's skills and adds them to a list
+for (let i = 0; i < userPersona.skills.length; i++) {
+let listItem = document.createElement("li"); // This makes a new item for lists
+listItem.textContent = `- ${userPersona.skills[i]}`; // This sets the text content for the skills
+skillList.appendChild(listItem); // This adds the list items to Aaron's skill list
+}
+// This creates the output of the introduction of Aaron and Tammy
+console.log(userPersona.introduce());
+console.log(userPersona2.introduce());
+</script>
+</body>
+</html>
